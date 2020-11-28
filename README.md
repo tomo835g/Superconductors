@@ -1,10 +1,10 @@
-#Introduction
+# Introduction
 
 The code and the data used in ***''Deep-Learning Estimation of Band Gap with the Reading-Periodic-Table Method and Periodic Convolution Layer" by Tomohiko Konno, Journal of the Physical Society of Japan (2020)***
 
 The paper is [open access](), and Arxiv version is found [here](https://arxiv.org/abs/1912.05916).
 
-#Condition
+# Condition
 The data and the codes can be used under the condition that you cite the following two papers. Also see Licence.
 
 ```
@@ -27,7 +27,7 @@ The data and the codes can be used under the condition that you cite the followi
 
 
 
-#Codes
+# Codes
 
 1. Transforms chemical formula like H2O into reading periodic table type data format.
    ```chemical_formula_to_reading_periodic_table.py```
@@ -37,7 +37,7 @@ The data and the codes can be used under the condition that you cite the followi
     ```network_band_gap_estimation.py```
 It also requires `periodic_shift_conv2D.py`
 
-#Data
+# Data
 
 
 1. The data used for band gap binary classification.
