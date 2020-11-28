@@ -27,7 +27,7 @@ The data and the codes can be used under the condition that you cite the followi
 
 
 
-# Codes
+# Code for the model
 
 1. Transforms chemical formula like H2O into reading periodic table type data format.
    ```chemical_formula_to_reading_periodic_table.py```
