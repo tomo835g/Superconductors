@@ -13,16 +13,20 @@ The data and the codes can be used under the condition that you cite the followi
   author={Tomohiko Konno and H. Kurokawa and F. Nabeshima and Y. Sakishita and Ryo Ogawa and I. Hosako and A. Maeda},
   journal={ArXiv},
   year={2018},
-  volume={abs/1812.01995}}
+  volume={abs/1812.01995},
+  }
 ```
 
 ``` 
-@article{Konno2019DeeplearningEO,
-  title={Deep-learning estimation of band gap with the reading-periodic-table method and periodic convolution layer},
-  author={Tomohiko Konno},
-  journal={ArXiv},
-  year={2019},
-  volume={abs/1912.05916}}
+@article{doi:10.7566/JPSJ.89.124006,
+author = {Konno ,Tomohiko},
+title = {Deep-Learning Estimation of Band Gap with the Reading-Periodic-Table Method and Periodic Convolution Layer},
+journal = {Journal of the Physical Society of Japan},
+volume = {89},number = {12},pages = {124006},year = {2020},
+doi = {10.7566/JPSJ.89.124006},
+URL = { https://doi.org/10.7566/JPSJ.89.124006},
+eprint = {https://doi.org/10.7566/JPSJ.89.124006},
+}
 ```
 
 
