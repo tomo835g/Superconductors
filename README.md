@@ -35,7 +35,7 @@ eprint = {https://doi.org/10.7566/JPSJ.89.124006},
 
 1. The code that transforms chemical formula like H<sub>2</sub>O into **reading periodic table type data format**.
    ```chemical_formula_to_reading_periodic_table.py```
-
+%TO Do add more explanation
 
 2. The code for model (Pytorch)
     ```network_band_gap_estimation.py```
