@@ -2,7 +2,7 @@
 
 The code and the data used in ***''Deep-Learning Estimation of Band Gap with the Reading-Periodic-Table Method and Periodic Convolution Layer" by Tomohiko Konno, Journal of the Physical Society of Japan (2020)***
 
-The paper is [open access](), and Arxiv version is found [here](https://arxiv.org/abs/1912.05916).
+The paper is [open access](https://doi.org/10.7566/JPSJ.89.124006), and Arxiv version is found [here](https://arxiv.org/abs/1912.05916).
 
 # Condition
 The data and the codes can be used under the condition that you cite the following two papers. Also see Licence.
@@ -31,9 +31,9 @@ eprint = {https://doi.org/10.7566/JPSJ.89.124006},
 
 
 
-# Code for the Model
+# Code
 
-1. Transforms chemical formula like H2O into reading periodic table type data format.
+1. The code that transforms chemical formula like H<sub>2</sub>O into **reading periodic table type data format**.
    ```chemical_formula_to_reading_periodic_table.py```
 
 
