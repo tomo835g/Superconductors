@@ -1,6 +1,6 @@
 # Introduction
 
-The code and the data used in ***''Deep-Learning Estimation of Band Gap with the Reading-Periodic-Table Method and Periodic Convolution Layer" by Tomohiko Konno, Journal of the Physical Society of Japan (2020)***
+The data and the code for ***''Deep-Learning Estimation of Band Gap with the Reading-Periodic-Table Method and Periodic Convolution Layer" by Tomohiko Konno, Journal of the Physical Society of Japan (2020)***
 
 The paper is [open access](https://doi.org/10.7566/JPSJ.89.124006), and Arxiv version is found [here](https://arxiv.org/abs/1912.05916).
 
