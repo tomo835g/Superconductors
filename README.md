@@ -35,7 +35,18 @@ eprint = {https://doi.org/10.7566/JPSJ.89.124006},
 
 1. The code that transforms chemical formula like H<sub>2</sub>O into **reading periodic table type data format**.
    ```chemical_formula_to_reading_periodic_table.py```
-%TO Do add more explanation
+
+An example
+```
+test_formula = 'H2He5'
+reading_periodic_table = ReadingPeriodicTable(formula=test_formula)
+reading_periodic_table_form_data = reading_periodic_table.formula_to_periodic_table()
+print(reading_periodic_table_form_data)
+>> must print 4*7*32 data.
+formula_dict_form=reading_periodic_table.from_periodic_table_form_to_dict_form(reading_periodic_table_form_data)
+print(formula_dict_form)
+>> must print {'H':2,'He':5}
+```
 
 2. The code for model (Pytorch)
     ```network_band_gap_estimation.py```
@@ -53,4 +64,6 @@ It also requires `periodic_shift_conv2D.py`
     The list of materials and band gap values.
 
 
+# Requirements
 
+torch,pymatgen
