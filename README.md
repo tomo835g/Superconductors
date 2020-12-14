@@ -65,5 +65,4 @@ Due to the scarce human resource, we can only provide above codes.
 
 
 # Requirements
-
 torch, pymatgen
