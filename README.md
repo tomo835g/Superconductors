@@ -52,6 +52,7 @@ print(formula_dict_form)
     ```network_band_gap_estimation.py```
 It also requires `periodic_shift_conv2D.py`
 
+Due to the scarce human resource, we can only provide above codes.
 # Data
 
 1. The data used for band gap binary classification.
