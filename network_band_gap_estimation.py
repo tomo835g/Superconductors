@@ -2,29 +2,29 @@ import numpy as np
 import torch.nn as nn
 import torch.nn.functional as F
 import torch
-from periodic_shift_conv2D import Periodic_shift_Conv2D
+from periodic_shift_conv2D import PeriodicShiftConv2D
 
 
-class Basic_Periodic_shift_Conv2D_1(nn.Module):  # 2-layers
+class BlockPeriodicShiftConv2D1(nn.Module):  # 2-layers
     """"
     input size and the output size are designed to be the same
     """
 
     def __init__(self, input_channels, inside_channels, output_channels, stride=1, padding=(1, 0), kernel_size=[3, 3], device=0):
-        super(Basic_Periodic_shift_Conv2D_1, self).__init__()
+        super(BlockPeriodicShiftConv2D1, self).__init__()
         self.input_channels = input_channels
         self.inside_channels = inside_channels
         self.output_channels = output_channels
         self.stride = stride
         self.padding = padding
         self.kernel_size = kernel_size
-        self.conv1 = Periodic_shift_Conv2D(
+        self.conv1 = PeriodicShiftConv2D(
             input_channels, inside_channels, kernel_size, stride, padding, device=device)
         self.bn1 = nn.BatchNorm2d(inside_channels)
 
         self.relu = nn.ReLU()
 
-        self.conv2 = Periodic_shift_Conv2D(
+        self.conv2 = PeriodicShiftConv2D(
             inside_channels, output_channels, kernel_size, stride, padding, device=device)
         self.bn2 = nn.BatchNorm2d(output_channels)
 
@@ -51,15 +51,16 @@ class Basic_Periodic_shift_Conv2D_1(nn.Module):  # 2-layers
         return out
 
 
-class cnn_period_img_10(nn.Module):
+class ModelRPTWithPeriodicity(nn.Module):
     """
-    this is for band gap estimation with left- and right-most columns glued up with one row shifted
+    Here is the model
+    this is for band gap estimation. The left- and right-most column is glued up
     """
 
     def __init__(self, input_channels=4, log=False, binary=False, blocks=20, device=0):
-        super(cnn_period_img_10, self).__init__()
+        super(ModelRPTWithPeriodicity, self).__init__()
         # in_channel, out_channel, kernel_size
-        self.conv0 = Periodic_shift_Conv2D(
+        self.conv0 = PeriodicShiftConv2D(
             in_channels=input_channels, out_channels=10, device=device)
 
         # self.bn0 = nn.BatchNorm2d(10)
@@ -74,32 +75,32 @@ class cnn_period_img_10(nn.Module):
         self.conv1 = nn.Conv2d(10, 20, kernel_size=(
             2, 4), stride=(1, 2), padding=(0, 3))
         self.bn1 = nn.BatchNorm2d(20)
-        self.layer_1 = Basic_Periodic_shift_Conv2D_1(
+        self.layer_1 = BasicPeriodicShiftConv2D1(
             input_channels=20, inside_channels=20, output_channels=20, device=device)
 
         self.conv2 = nn.Conv2d(20, 30, kernel_size=(2, 4))
         self.bn2 = nn.BatchNorm2d(30)
-        self.layer_2 = Basic_Periodic_shift_Conv2D_1(
+        self.layer_2 = BasicPeriodicShiftConv2D1(
             input_channels=30, inside_channels=30, output_channels=30, device=device)
 
         self.conv3 = nn.Conv2d(30, 40, kernel_size=(2, 4))
         self.bn3 = nn.BatchNorm2d(40)
-        self.layer_3 = Basic_Periodic_shift_Conv2D_1(
+        self.layer_3 = BasicPeriodicShiftConv2D1(
             input_channels=40, inside_channels=40, output_channels=40, device=device)
 
         self.conv4 = nn.Conv2d(40, 50, kernel_size=(2, 4))
         self.bn4 = nn.BatchNorm2d(50)
-        self.layer_4 = Basic_Periodic_shift_Conv2D_1(
+        self.layer_4 = BasicPeriodicShiftConv2D1(
             input_channels=50, inside_channels=50, output_channels=50, device=device)
 
         self.conv5 = nn.Conv2d(50, 60, kernel_size=(2, 4))
         self.bn5 = nn.BatchNorm2d(60)
-        self.layer_5 = Basic_Periodic_shift_Conv2D_1(
+        self.layer_5 = BasicPeriodicShiftConv2D1(
             input_channels=60, inside_channels=60, output_channels=60, device=device)
 
         self.conv6 = nn.Conv2d(60, 70, kernel_size=(2, 4))
         self.bn6 = nn.BatchNorm2d(70)
-        self.layer_6 = Basic_Periodic_shift_Conv2D_1(
+        self.layer_6 = BasicPeriodicShiftConv2D1(
             input_channels=70, inside_channels=70, output_channels=70, device=device)
 
         # self.conv7 = nn.Conv2d(30, 34, kernel_size=(2, 1))
@@ -114,7 +115,7 @@ class cnn_period_img_10(nn.Module):
     def _make_layers(self, channels, blocks, device=0):
         layers = []
         for _ in range(blocks):
-            layers.append(Basic_Periodic_shift_Conv2D_1(input_channels=channels,
+            layers.append(BasicPeriodicShiftConv2D1(input_channels=channels,
                                                         inside_channels=channels, output_channels=channels, device=device))
         return nn.Sequential(*layers)
 

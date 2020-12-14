@@ -4,13 +4,13 @@ import torch.nn.functional as F
 import torch
 
 
-class Periodic_shift_Conv2D(nn.Module):
+class PeriodicShiftConv2D(nn.Module):
     """
     If padding=0, and stride=1, then the output size is the same as input size for periodic direction.
     """
 
     def __init__(self, in_channels, out_channels, kernel_size=(1, 1), stride=1, padding=0, dilation=1, groups=1, bias=True, period_direction=(0, 1), padding_mode='zeros', device=False):
-        super(Periodic_shift_Conv2D, self).__init__()
+        super(PeriodicShiftConv2D, self).__init__()
         self.kernel_hight = kernel_size[0]
         self.kernel_width = kernel_size[1]
         self.device = device

@@ -39,7 +39,7 @@ eprint = {https://doi.org/10.7566/JPSJ.89.124006},
 An example
 ```
 test_formula = 'H2He5'
-reading_periodic_table = ReadingPeriodicTable(formula=test_formula)
+reading_periodic_table = TransformReadingPeriodicTable(formula=test_formula)
 reading_periodic_table_form_data = reading_periodic_table.formula_to_periodic_table()
 print(reading_periodic_table_form_data)
 >> must print 4*7*32 data.
@@ -54,7 +54,6 @@ It also requires `periodic_shift_conv2D.py`
 
 # Data
 
-
 1. The data used for band gap binary classification.
     ```band_gap_data_binary_used.csv```
     The list of materials with band gap existence; 0 for no band gap, and 1 for band gap.
@@ -66,4 +65,4 @@ It also requires `periodic_shift_conv2D.py`
 
 # Requirements
 
-torch,pymatgen
+torch, pymatgen
